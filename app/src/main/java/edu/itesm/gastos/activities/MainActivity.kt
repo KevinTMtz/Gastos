@@ -57,7 +57,9 @@ class MainActivity : AppCompatActivity() {
         })
 
         viewModel.getSumObserver().observe(this) {
-            Toast.makeText(this, "Total Sum: ${it.toString()}", Toast.LENGTH_SHORT).show()
+            if (it != null) {
+                Toast.makeText(this, "Total Sum: ${it.toString()}", Toast.LENGTH_SHORT).show()
+            }
         }
 
         viewModel.getGastos(gastoDao)
